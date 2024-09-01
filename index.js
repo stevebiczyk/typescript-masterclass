@@ -1,13 +1,11 @@
 "use strict";
-let id = Symbol(1234);
-let abcId = Symbol("abc");
-let user = {
-    [id]: "1234",
-    name: "John",
-    getId() {
-        return this[id];
-    },
-};
-console.log(user.name);
-console.log(id);
-console.log(user.getId());
+/**
+ * Assign the correct types to each of the following variables
+ */
+let message = "Hello, TypeScript!";
+let age = 42;
+let isStudent = true;
+let fetched = null;
+let user = undefined;
+let largeNumber = 9007199254740991n;
+let unique = Symbol("uniqueSymbol");
