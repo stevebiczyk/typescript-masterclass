@@ -1,27 +1,14 @@
-// Date;
-// Array;
-// Map;
-// Set;
-// Promise;
-// RegExp;
-// Error;
-// Function;
-// Symbol;
-// WeakMap;
-// WeakSet;
+type StringOrNumber = string | number;
+type NumberOrUndefined = number | undefined;
+type StringNumberOrUndefined = string | number | undefined;
+let DateOrUndefined: Date | undefined = new Date();
 
-type CustomString = string;
-type CustomNumber = number;
-type CustomDate = Date;
-type CustomSymbol = Symbol;
-//annotation
-let firstName: CustomString = "Istvan";
-let age: CustomNumber = 46;
-let birthday: CustomDate = new Date();
-let unique: CustomSymbol = Symbol("symbol");
+let myVar: StringOrNumber = 53421;
 
-function addNumbers(a: number, b: number) {
-  return a + b;
+function print(input: string | undefined) {
+  if (input) {
+    console.log(input);
+  } else {
+    console.log("Please provide an input to print");
+  }
 }
-//inference
-let finalResult = addNumbers(10, 15);
