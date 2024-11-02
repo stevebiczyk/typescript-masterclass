@@ -1,14 +1,6 @@
-type StringOrNumber = string | number;
-type NumberOrUndefined = number | undefined;
-type StringNumberOrUndefined = string | number | undefined;
-let DateOrUndefined: Date | undefined = new Date();
+type CustomDate = Date;
+type CustomString = string;
 
-let myVar: StringOrNumber = 53421;
-
-function print(input: string | undefined) {
-  if (input) {
-    console.log(input);
-  } else {
-    console.log("Please provide an input to print");
-  }
-}
+type TrueString = CustomString extends string ? true : false;
+type ConditionalNumber = CustomDate extends Date ? number : string;
+type DateAssignment = CustomDate extends Date ? Date : undefined;
