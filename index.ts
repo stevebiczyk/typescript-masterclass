@@ -1,23 +1,27 @@
-let person = {};
-name: "John";
-age: 46;
+// let post: {
+//   title: string;
+//   content: string;
+//   date: Date;
+// } = {
+//   title: "This is the blog title",
+//   content: "This is the blog content",
+//   date: new Date(),
+// };
 
-let car: Object = {
-  make: "Ford",
-  model: "Fiesta",
-  year: 2011,
+type Post = {
+  title: string;
+  content: string;
+  date: Date;
 };
 
-//not needed
-car = [];
-car = () => {};
+let post: Post = {
+  title: "This is the blog title",
+  content: "This is the blog content",
+  date: new Date(),
+};
 
-let newCar: {
-  make: string;
-  model: string;
-  year: number;
-} = {
-  make: "Ford",
-  model: "Fiesta",
-  year: 2011,
+let post1: Post = {
+  title: "This is the blog title",
+  content: "This is the blog content",
+  date: new Date(),
 };
