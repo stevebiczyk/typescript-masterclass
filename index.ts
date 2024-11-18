@@ -14,11 +14,21 @@ type Author = {
   email: string;
 };
 
+type AwardDetails = {
+  name: string;
+  date: Date;
+};
+
+type Awards = {
+  [key: string]: AwardDetails;
+};
+
 type Post = {
-  title: string;
+  title: string; // Type Annotations using semicolons instead of commas
   content: string;
   date: Date;
-  author: Author;
+  author: Author; // Assign Author type to author property on Post type
+  awards: Awards;
 };
 
 let post: Post = {
@@ -29,5 +39,15 @@ let post: Post = {
     name: "Mike",
     age: 30,
     email: "mike@mike.com",
+  },
+  awards: {
+    best_blog: {
+      name: "Best Blog",
+      date: new Date(),
+    },
+    new_blog: {
+      name: "New Blog",
+      date: new Date(),
+    },
   },
 };
