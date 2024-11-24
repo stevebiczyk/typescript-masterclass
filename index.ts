@@ -1,78 +1,35 @@
-// let post: {
-//   title: string;
-//   content: string;
-//   date: Date;
-// } = {
-//   title: "This is the blog title",
-//   content: "This is the blog content",
-//   date: new Date(),
-// };
-
-type Author = {
+type Dog = {
   name: string;
-  age: number;
-  email: string;
-  readonly type: "human" | "ai"; // Readonly property
+  barks: boolean;
+  wagsTail: boolean;
 };
 
-type AwardDetails = {
+type Cat = {
   name: string;
-  date: Date;
+  meows: boolean;
+  purrs: boolean;
 };
 
-type Awards = {
-  [key: string]: AwardDetails;
+type Animal = Dog | Cat;
+
+let dog: Animal = {
+  name: "Fido",
+  barks: true,
+  wagsTail: true,
 };
 
-type Post = {
-  title: string; // Type Annotations using semicolons instead of commas
-  content: string;
-  date: Date;
-  author: Author; // Assign Author type to author property on Post type
-  awards: Awards;
-  category?: string; // Optional property
+let cat: Animal = {
+  name: "Whiskers",
+  meows: true,
+  purrs: true,
 };
 
-let post1: Post = {
-  title: "This is the blog title",
-  content: "This is the blog content",
-  date: new Date(),
-  author: {
-    name: "Mike",
-    age: 30,
-    email: "mike@mike.com",
-    type: "human",
-  },
-  awards: {
-    best_blog: {
-      name: "Best Blog",
-      date: new Date(),
-    },
-    new_blog: {
-      name: "New Blog",
-      date: new Date(),
-    },
-  },
+let hybrid: Animal = {
+  name: "Hybrid",
+  barks: true,
+  wagsTail: true,
+  meows: true,
+  purrs: true,
 };
 
-let post2: Post = {
-  title: "This is the blog title",
-  content: "This is the blog content",
-  date: new Date(),
-  author: {
-    name: "Mike",
-    age: 30,
-    email: "mike@mike.com",
-    type: "human",
-  },
-  awards: {
-    best_blog: {
-      name: "Best Blog",
-      date: new Date(),
-    },
-    new_blog: {
-      name: "New Blog",
-      date: new Date(),
-    },
-  },
-};
+// Missing properties are not allowed in union types
