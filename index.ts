@@ -1,20 +1,34 @@
-type Cat = {
+type Pilot = {
   name: string;
-  alive: boolean;
-  color: string;
+  licenseNumber: string;
+  age: number;
 };
 
-type Dog = {
-  name: string;
-  dead: boolean;
-  color: string;
+type Seats = {
+  [keyof: string]: string;
 };
 
-type CatDog = Cat & Dog;
+type Airplane = {
+  model: string;
+  flightNumber: string;
+  timeOfDeparture: Date;
+  timeOfArrival: Date;
+  pilot: Pilot;
+  seats: Seats;
+};
 
-let catDog: CatDog = {
-  name: "Fluffy",
-  alive: true,
-  dead: false,
-  color: "black",
+let airplane: Airplane = {
+  model: "Boeing 747",
+  flightNumber: "JH-123",
+  timeOfDeparture: new Date(),
+  timeOfArrival: new Date(),
+  pilot: {
+    name: "John Doe",
+    licenseNumber: "1234",
+    age: 45,
+  },
+  seats: {
+    "1A": "John Doe",
+    "1B": "Jane Doe",
+  },
 };
