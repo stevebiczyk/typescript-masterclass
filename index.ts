@@ -1,33 +1,20 @@
-type NetworkLoadingState = {
-  status: "loading";
+type Cat = {
+  name: string;
+  alive: boolean;
+  color: string;
 };
 
-type NetworkFailedState = {
-  status: "failed";
-  code: number;
+type Dog = {
+  name: string;
+  dead: boolean;
+  color: string;
 };
 
-type NetworkSuccessState = {
-  status: "success";
-  response: {
-    title: string;
-    duration: number;
-    summary: string;
-  };
+type CatDog = Cat & Dog;
+
+let catDog: CatDog = {
+  name: "Fluffy",
+  alive: true,
+  dead: false,
+  color: "black",
 };
-
-type NetworkState =
-  | NetworkLoadingState
-  | NetworkFailedState
-  | NetworkSuccessState;
-
-function logger(state: NetworkState): string {
-  switch (state.status) {
-    case "loading":
-      return "Loading...";
-    case "failed":
-      return `Error ${state.code}`;
-    case "success":
-      return `Downloaded ${state.response.title} - ${state.response.summary}`;
-  }
-}
