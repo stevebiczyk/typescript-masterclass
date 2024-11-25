@@ -1,35 +1,33 @@
-type Dog = {
-  name: string;
-  barks: boolean;
-  wagsTail: boolean;
+type NetworkLoadingState = {
+  status: "loading";
 };
 
-type Cat = {
-  name: string;
-  meows: boolean;
-  purrs: boolean;
+type NetworkFailedState = {
+  status: "failed";
+  code: number;
 };
 
-type Animal = Dog | Cat;
-
-let dog: Animal = {
-  name: "Fido",
-  barks: true,
-  wagsTail: true,
+type NetworkSuccessState = {
+  status: "success";
+  response: {
+    title: string;
+    duration: number;
+    summary: string;
+  };
 };
 
-let cat: Animal = {
-  name: "Whiskers",
-  meows: true,
-  purrs: true,
-};
+type NetworkState =
+  | NetworkLoadingState
+  | NetworkFailedState
+  | NetworkSuccessState;
 
-let hybrid: Animal = {
-  name: "Hybrid",
-  barks: true,
-  wagsTail: true,
-  meows: true,
-  purrs: true,
-};
-
-// Missing properties are not allowed in union types
+function logger(state: NetworkState): string {
+  switch (state.status) {
+    case "loading":
+      return "Loading...";
+    case "failed":
+      return `Error ${state.code}`;
+    case "success":
+      return `Downloaded ${state.response.title} - ${state.response.summary}`;
+  }
+}
