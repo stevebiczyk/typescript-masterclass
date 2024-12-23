@@ -1,3 +1,7 @@
+let a: number[] = [1, 2, 3, 4, 5];
+let b: Array<string> = ["a", "b", "c", "d", "e"];
+let c: (string | number | boolean)[] = ["a", 1, "b", 2, "c", 3, true, false];
+
 type Pilot = {
   name: string;
   licenseNumber: string;
@@ -30,5 +34,6 @@ let airplane: Airplane = {
   seats: {
     "1A": "John Doe",
     "1B": "Jane Doe",
+    "1C": "Sam Doe",
   },
 };
