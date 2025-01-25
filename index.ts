@@ -1,15 +1,13 @@
-let person: [string, string, number] = ["John", "Doe", 30];
+let number: readonly number[] = [1, 2, 3];
 
-type User = [string, string, number, string?];
-let user: User = ["John", "Doe", 30, "user@email.com"];
+number.push(4); // Error: Property 'push' does not exist on type 'readonly number[]'.
 
-type listOfStudents = [number, boolean, ...string[]];
+type ReadOnlyTuple = readonly [string, string, number];
 
-const mathStudents: listOfStudents = [1, true, "John", "Doe", "Jane", "Doe"];
+let person: ReadOnlyTuple = ["John", "Doe", 30];
+person[0] = "Jane"; // Error: Index signature in type 'readonly ["John", "Doe", 30]' only permits reading.
 
-type StringBooleansNumber = [string, ...boolean[], number];
-type BooleansStringNumber = [...boolean[], string, number];
+type a = Readonly<(string | number)[]>;
+type b = ReadonlyArray<string | number>;
 
-let stringBooleansNumber: StringBooleansNumber = ["John", true, false, 30];
-
-let booleansStringNumber: BooleansStringNumber = [true, false, "John", 30];
+type c = Readonly<[number, string, number]>;
